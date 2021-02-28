@@ -1,0 +1,85 @@
+<form [formGroup]='appForm' (ngSubmit)="sendData();"class="form-container">
+    <mat-card>
+
+        <mat-card-content>
+
+            <div class='row'>
+                <mat-label>*First Name:</mat-label>
+                <div class='col-md-6'>
+
+                    <mat-form-field appearance="outline" class='full-width'>
+                        <input formControlName='firstName' matInput placeholder="First Name">
+                    </mat-form-field>
+                </div>
+                <mat-label>*Last Name:</mat-label>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline" class='full-width'>
+                        <input formControlName='lastName' matInput placeholder="Last Name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class='row'>
+                <mat-label>*Passport ID:</mat-label>
+                <div class='col-md-6'>
+                    <mat-form-field appearance="outline" class='full-width'>
+                        <input formControlName='passId' matInput placeholder="Passport ID">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class='row'>
+                <mat-label>*Phone Number:</mat-label>
+                <div class='col-md-6'>
+                    <mat-form-field appearance="outline" class='full-width'>
+
+                        <input formControlName='phoneNumber' matInput mask="(000) 000-0000"
+                            placeholder="Phone (000) 000-0000" value="" type='number'>
+                    </mat-form-field>
+                </div>
+            </div>
+           
+           
+            <div class='row'>
+                <mat-label>*Date of Appointment:</mat-label>
+                <div class='col-md-6'>
+                    <mat-form-field appearance="outline">
+                        <input formControlName='hireDate' matInput [matDatepicker]="picker"
+                            placeholder='Date of Appointment'>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <mat-label>*Choose a time:</mat-label>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+
+                        <mat-select formControlName='chooseTime'>
+
+                            <mat-option *ngFor="let time of timeOptions" [value]="time">{{time}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class='row'>
+                <mat-label>*Purpose of Appointment:</mat-label>
+                <div class='col-md-6'>
+
+                    <mat-form-field appearance="outline">
+
+                        <mat-select formControlName='purpose' multiple>
+
+                            <mat-option *ngFor="let option of purposeSelectOptions" [value]="option">{{option}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <mat-card-actions>
+                <button type='submit'  mat-raised-button color='primary'>Send</button>
+            </mat-card-actions>
+        </mat-card-content>
+
+    </mat-card>
+
+</form> 
+<!--(appForm.value)-->

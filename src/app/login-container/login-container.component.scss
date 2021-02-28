@@ -1,0 +1,16 @@
+.login-form-container {
+    margin:5em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    button {
+      margin-bottom: 12px;
+    }
+  }
+  
+  mat-form-field {
+    margin-bottom: 12px;
+  }
+input{
+  background-color:  #4ad8e2;
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "appointmentconsulate-16e4b": {
+      "hosting": {
+        "AppConsule": [
+          "appointmentconsulate-16e4b"
+        ]
+      }
+    }
+  }
+}
