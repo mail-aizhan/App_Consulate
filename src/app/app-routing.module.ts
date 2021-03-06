@@ -16,6 +16,9 @@ const routes: Routes = [
 {
   path:'form',
   loadChildren: ()=> import('../libs/modules/form/form.module').then(m=>m.FormModule)
+},{ 
+path:'success',
+loadChildren: ()=> import('../libs/modules/success.module').then(m=>m.SuccessModule)
 }
 ];
 

@@ -1,57 +1,70 @@
-<form [formGroup]='appForm' (ngSubmit)="sendData();"class="form-container">
+<form [formGroup]='appForm' autocomplete="off" class="form-container">
     <mat-card>
 
         <mat-card-content>
 
             <div class='row'>
-                <mat-label>*First Name:</mat-label>
+
                 <div class='col-md-6'>
 
-                    <mat-form-field appearance="outline" class='full-width'>
+                    <mat-form-field class='example-full-width' appearance="outline">
+                        <mat-label>*First Name:</mat-label>
                         <input formControlName='firstName' matInput placeholder="First Name">
                     </mat-form-field>
                 </div>
-                <mat-label>*Last Name:</mat-label>
+
                 <div class="col-md-6">
                     <mat-form-field appearance="outline" class='full-width'>
+                        <mat-label>*Last Name:</mat-label>
                         <input formControlName='lastName' matInput placeholder="Last Name">
                     </mat-form-field>
                 </div>
             </div>
             <div class='row'>
-                <mat-label>*Passport ID:</mat-label>
+
                 <div class='col-md-6'>
                     <mat-form-field appearance="outline" class='full-width'>
+                        <mat-label>*Passport ID:</mat-label>
                         <input formControlName='passId' matInput placeholder="Passport ID">
                     </mat-form-field>
                 </div>
             </div>
             <div class='row'>
-                <mat-label>*Phone Number:</mat-label>
+
                 <div class='col-md-6'>
                     <mat-form-field appearance="outline" class='full-width'>
+                        <mat-label>*Email Address:</mat-label>
+                        <input formControlName='eMail' matInput placeholder="Email Address">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class='row'>
 
+                <div class='col-md-6'>
+                    <mat-form-field appearance="outline" class='full-width'>
+                        <mat-label>*Phone Number:</mat-label>
                         <input formControlName='phoneNumber' matInput mask="(000) 000-0000"
                             placeholder="Phone (000) 000-0000" value="" type='number'>
                     </mat-form-field>
                 </div>
             </div>
-           
-           
+
+
             <div class='row'>
-                <mat-label>*Date of Appointment:</mat-label>
+
                 <div class='col-md-6'>
                     <mat-form-field appearance="outline">
+                        <mat-label>*Date of Appointment:</mat-label>
                         <input formControlName='hireDate' matInput [matDatepicker]="picker"
                             placeholder='Date of Appointment'>
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                 </div>
-                <mat-label>*Choose a time:</mat-label>
+
                 <div class="col-md-6">
                     <mat-form-field appearance="outline">
-
+                        <mat-label>*Choose a time:</mat-label>
                         <mat-select formControlName='chooseTime'>
 
                             <mat-option *ngFor="let time of timeOptions" [value]="time">{{time}}</mat-option>
@@ -60,11 +73,11 @@
                 </div>
             </div>
             <div class='row'>
-                <mat-label>*Purpose of Appointment:</mat-label>
+
                 <div class='col-md-6'>
 
                     <mat-form-field appearance="outline">
-
+                        <mat-label>*Purpose of Appointment:</mat-label>
                         <mat-select formControlName='purpose' multiple>
 
                             <mat-option *ngFor="let option of purposeSelectOptions" [value]="option">{{option}}
@@ -75,11 +88,14 @@
             </div>
 
             <mat-card-actions>
-                <button type='submit'  mat-raised-button color='primary'>Send</button>
+                <button mat-raised-button color="primary" [disabled]="!appForm.valid"
+                    (click)="onSubmit()">Submit</button>
+                    <button mat-raised-button color="primary"  (click)="resetForm()">Reset</button>
             </mat-card-actions>
         </mat-card-content>
 
     </mat-card>
 
-</form> 
-<!--(appForm.value)-->
+</form>
+<!--(appForm.value)
+//(ngSubmit)="sendData();"//-->

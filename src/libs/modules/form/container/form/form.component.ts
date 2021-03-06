@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators} from '@angular/forms';
+
+import { Router } from '@angular/router'
 
 
 
@@ -20,23 +22,21 @@ timeOptions= [
    "14:00", "14:45", 
    "14:45", "15:30",
    "15:30", "16:00", 
-   
- ]
+   ]
 
- readonly localStorageKey ='form-create-snapshot';
-appForm :FormGroup;
-  constructor(private formBuilder: FormBuilder) { 
-this.appForm =formBuilder.group({
-  firstName:['', Validators.required],
-  lastName:[''],
-  passId:['', Validators.required],
-  phoneNumber:['', Validators.required],
-  hireDate:['', Validators.required],
-  chooseTime:['', Validators.required],
-  purpose:['']
-});
-
-}
+   appForm =this.formBuilder.group({
+    firstName:['', Validators.required],
+    lastName:[''],
+    passId:['', Validators.required],
+    phoneNumber:['', Validators.required],
+    eMail:['', Validators.required],
+    hireDate:['', Validators.required],
+    chooseTime:['', Validators.required],
+    purpose:['', Validators.required],
+    
+  });
+//appForm :FormGroup;
+constructor(private formBuilder: FormBuilder, private router: Router) { }
   ngOnInit(): void {
  
 
@@ -45,15 +45,33 @@ this.appForm =formBuilder.group({
     //  console.log(data)
     // })
 //dynamically we can capture the state of validation of the entire form
-    this.appForm.statusChanges.subscribe(formState => {
-         localStorage.setItem(this.localStorageKey, JSON.stringify(formState));
-    })
+    // this.appForm.statusChanges.subscribe(formState => {
+    //      localStorage.setItem(this.localStorageKey, JSON.stringify(formState));
+    // })
  
   }
- 
+ ngAfterViewInit(){
+  
+  //  this.appForm.valueChanges.subscribe((formValue)=> {
+  //    console.log(formValue);
+  //  })
+ }
 
-  sendData(){
-    console.log(this.appForm);
-    console.log(this.appForm.value);
+onSubmit(){
+  if (this.appForm.valid) {
+    alert('You  appointment form submitted successfully');
+    return this.router.navigateByUrl('/success')
+  } else {
+    // validate all form fields
   }
+ 
 }
+resetForm(){
+  this.appForm.reset();
+}
+
+}
+//   this.router.navigateByUrl('/success')
+//    }
+//    }
+//this will routet to another page 

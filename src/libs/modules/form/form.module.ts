@@ -14,6 +14,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 
 
+
+
 const routes: Route[]= [
   {
     path:'',
@@ -24,8 +26,6 @@ const routes: Route[]= [
     pathMatch: 'full', //pathmacth--redirectTo
     component: FormComponent
   }
-
-  
 ] 
   @NgModule({
     declarations: [FormComponent],
@@ -41,7 +41,8 @@ const routes: Route[]= [
      MatCardModule,
      MatNativeDateModule,
      MatDatepickerModule,
-     AngularFirestoreModule
+     AngularFirestoreModule,
+
 
     ],
 providers:[]

@@ -3,14 +3,18 @@
     padding: 2em;
     display: flex;
     flex-direction: column;
-    button {
-      margin-bottom: 12px;
-    }
+  
   }
   
   mat-form-field {
     margin-bottom: 12px;
   }
-input{
-  background-color:  #4ad8e2;
-}
+  button {
+  margin-bottom: 12px;
+  }
+  button:hover{
+ background-color: rgb(0, 174, 255);
+  }
+  button:active{
+    background-color: rgb(14, 105, 121);
+  }

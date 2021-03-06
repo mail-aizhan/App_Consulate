@@ -10,10 +10,17 @@
   mat-form-field{
     width:700px;
     display: float;
-    
    }
   
   mat-card-actions{
     margin:auto;
+   
+      button:hover{
+     background-color: rgb(0, 174, 255);
+      }
+      button:active{
+        background-color: rgb(14, 105, 121);
+      }
+      
   }
   
